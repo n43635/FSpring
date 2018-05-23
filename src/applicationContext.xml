@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--&lt;!&ndash;告诉Spring以注解的方式配置@Autowired&ndash;&gt;-->
+    <!--<context:annotation-config />-->
+<!--
+
+    <bean class="com.SX.pojo.Catagory" name="catagory">
+        <property name="name" value="yyy" />
+
+    </bean>
+    <bean class="com.SX.pojo.Product" name="product">
+        <property name="name" value="product 1" />
+
+        &lt;!&ndash;使用ref注入另一个catagory对象&ndash;&gt;
+        <property name="catagory" ref="catagory" />
+    </bean>
+-->
+
+<!--
+
+    &lt;!&ndash;&lt;!&ndash;声明日志对象&ndash;&gt;&ndash;&gt;
+    <bean id="productService" class="com.SX.service.ProductService">
+    </bean>
+
+    &lt;!&ndash;&lt;!&ndash;声明日志切面&ndash;&gt;&ndash;&gt;
+    <bean id="loggerAspect" class="com.SX.aspect.LoggerAspect"/>
+
+    <aop:config>
+        <aop:pointcut id="loggerCutpoint" expression="execution(* com.SX.service.ProductService.*(..))"/>
+        <aop:aspect id="logAspect" ref="loggerAspect">
+            <aop:around pointcut-ref="loggerCutpoint" method="log"/>
+        </aop:aspect>
+    </aop:config>
+-->
+
+
+    <context:component-scan base-package="com.SX.pojo"/>
+    <context:component-scan base-package="com.SX.service"/>
+    <context:component-scan base-package="com.SX.aspect"/>
+    <aop:aspectj-autoproxy/>
+
+    <!--<context:component-scan base-package="com.SX.pojo" />-->
+
+    <bean id="Zoo" class="com.SX.pojo.Zoo"/>
+    <bean id="tiger" class="com.SX.pojo.Tiger"/>
+    <bean id="monkey" class="com.SX.pojo.Monkey"/>
+
+
+</beans>
